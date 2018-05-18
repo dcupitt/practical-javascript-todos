@@ -1,0 +1,48 @@
+Functions
+
+todoList:
+  addTodo
+    // It should accept todoText as the first argument.
+    // It should push the new object to the end of the todos array.
+    // It should set a property 'todoText' to the todoText argument in the new object.
+    // It should set a property 'completed' to false in the new object.
+  changeTodo
+    // It should accept position as the first argument, todoText as the second argument, and change the todoText property of the element at todos[position] to the todoTest parsed in.
+    // It should accept position as the first argument.
+    // It should accept todoText as the second argument.
+    // It should change the todoText property of the element at todos[position].
+  deleteTodo
+    // It should accept position as the first argument, and delete the item in the todo array at todos[position].
+  toggleCompleted
+    // It should accept position as the first argument, and change the completed property of the element at todos[position] to it's opposite.
+  toggleAll
+    // It should make everything false, if all items in todos array are true.
+    // It should make everything true, if one or more, but not all, items in todos array are false.
+    // It should make everything true, if all items in todos array are false.
+
+handlers:
+addTodo
+  It should grab the text entered into the text input field on the html page (addTodoTextInput) and pass it to the todoList object to be processed.
+  It should clear the new todo input field.
+
+changeTodo
+  It should grab the html position (changeTodoPositionInput) the user wants to change from the input  and pass it to the todoList object to be processed.
+  It should grab the text entered into the text input field on the html page (addTodoTextInput) and pass it to the todoList object to be processed.
+  It should clear the position input field.
+  It should clear the change todo input field.
+
+deleteTodo
+  It should take the items position as an argument and (delete the item at that position.) call the todoList.delete method parsing in the position.
+
+toggleCompleted
+  It should grab the html position (toggleCompletedPositionInput) the user wants to toggle from the input  and pass it to the todoList object to be processed.
+  It should clear the position input field.
+
+toggleAll
+  It should call the todoList.toggleAll method.
+
+
+view:
+displayTodos
+createDeleteButton
+setUpEventListeners

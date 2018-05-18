@@ -1,0 +1,118 @@
+<script src="simpletest.js"></script>
+<script src="../main.js"></script>
+<script>
+// var todoList = {
+//   todos: [],
+//   addTodo: function(todoText) {
+//     this.todos.push({
+//       todoText: todoText,
+//       completed: false
+//     });
+//   },
+//   changeTodo: function(position, todoText) {
+//     this.todos[position].todoText = todoText;
+//   },
+//   deleteTodo: function(position) {
+//     this.todos.splice(position, 1);
+//   },
+//   toggleCompleted: function(position) {
+//     var todo = this.todos[position];
+//     todo.completed = !todo.completed;
+//   },
+//   toggleAll: function(){
+//     var totalTodos = this.todos.length;
+//     var completedTodos = 0;
+//
+//     // Get number of completed todos.
+//     this.todos.forEach(function (todo) {
+//       if (todo.completed === true) {
+//         completedTodos++;
+//       };
+//     });
+//     this.todos.forEach(function (todo) {
+//       // Case 1: If everything’s true, make everything false.
+//       if (completedTodos === totalTodos) {
+//         todo.completed = false;
+//       // Case 2: Otherwise, make everything true.
+//       } else {
+//         todo.completed = true;
+//       }
+//     });
+//   },
+// };
+//
+// var handlers = {
+//
+// }
+
+
+
+tests({
+  // todoList:
+    // addTodo
+  'It should push a new object to the end of the todos array.': function() {
+    var todoText = "This is the todo.";
+    todoList.addTodo(todoText);
+    eq(typeof todoList.todos[0], typeof {});
+  },
+  'It should accept the todoText as the first argument and set a property "todoText" to the todoText argument in the new object.': function() {
+    var todoText = "This is the todo.";
+    eq(todoList.todos[0].todoText, "This is the todo.");
+  },
+  'It should set a property "completed" to false in the new object.': function() {
+    var todoText = "This is the todo.";
+    eq(todoList.todos[0].completed, false);
+  },
+
+    // changeTodo
+  'It should accept position as the first argument, todoText as the second argument, and change the todoText property of the element at todos[position] to the todoTest parsed in.': function() {
+    todoList.todos = [{todoText: 'todoTextOne',
+    completed: false}, {todoText: 'todoTextTwo',
+    completed: false}];
+    todoList.changeTodo(1, 'todoTextChanged');
+    eq(todoList.todos[1].todoText, 'todoTextChanged');
+  },
+
+    // deleteTodo
+  'It should accept position as the first argument, and delete the item in the todo array at todos[position].': function() {
+    todoList.todos = [{todoText: 'todoTextOne',
+    completed: false}, {todoText: 'todoTextTwo',
+    completed: false}];
+    todoList.deleteTodo(1);
+    eq(todoList.todos.length, 1);
+  },
+
+    // toggleCompleted
+  'It should accept position as the first argument, and change the completed property of the element at todos[position] to its opposite.': function() {
+    todoList.todos = [{todoText: 'todoTextOne',
+    completed: false}, {todoText: 'todoTextTwo',
+    completed: false}];
+    todoList.toggleCompleted(1);
+    eq(todoList.todos[1].completed, true);
+  },
+
+    // toggleAll
+  'It should make everything false, if all items in todos array are true.': function() {
+    todoList.todos = [{todoText: 'todoTextOne',
+    completed: true}, {todoText: 'todoTextTwo',
+    completed: true}];
+    todoList.toggleAll();
+    eq(todoList.todos[0].completed && todoList.todos[1].completed, false);
+  },
+  'It should make everything true, if one or more, but not all, items in todos array are false.': function() {
+    todoList.todos = [{todoText: 'todoTextOne',
+    completed: false}, {todoText: 'todoTextTwo',
+    completed: true}];
+    todoList.toggleAll();
+    eq(todoList.todos[0].completed && todoList.todos[1].completed, true);
+  },
+  'It should make everything true, if all items in todos array are false.': function() {
+    todoList.todos = [{todoText: 'todoTextOne',
+    completed: false}, {todoText: 'todoTextTwo',
+    completed: false}];
+    todoList.toggleAll();
+    eq(todoList.todos[0].completed && todoList.todos[1].completed, true);
+  },
+
+});
+</script>
